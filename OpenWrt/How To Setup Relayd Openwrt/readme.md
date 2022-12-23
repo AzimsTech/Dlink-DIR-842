@@ -1,6 +1,6 @@
 # OpenWrt Wireless Netwrork Bridge (With IPv6 Support)
 
-![diag0](./diag0.drawio2.png)
+![diag0](./diag0.drawio6.png)
 
 ## Goals
 
