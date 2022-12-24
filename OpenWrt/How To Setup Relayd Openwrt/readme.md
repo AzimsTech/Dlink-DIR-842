@@ -1,7 +1,9 @@
 <!-- markdownlint-configure-file { "MD010": { "code_blocks": false } } -->
 # OpenWrt Wireless Netwrork Bridge (With IPv6 Support)
 
-![diag0](./diag0.drawio6.png)
+<p align="center">
+<img src="./diag0.drawio.svg" width="800" >
+</p>
 
 ## Goals
 
