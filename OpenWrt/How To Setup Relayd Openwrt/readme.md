@@ -1,3 +1,4 @@
+<!-- markdownlint-configure-file { "MD010": { "code_blocks": false } } -->
 # OpenWrt Wireless Netwrork Bridge (With IPv6 Support)
 
 ![diag0](./diag0.drawio6.png)
@@ -39,7 +40,7 @@ config interface 'relay_bridge' # Assign any name
 	option proto 'relay' 
 	option ipaddr '192.168.0.124' # Same static IP as wwan
 	list network 'lan' # lan interface
-	list network 'wwan' # wwan inteface
+	list network 'wwan' # wwan interface
 
 ```
 
@@ -85,10 +86,10 @@ config zone
 	option input 'ACCEPT'
 	option output 'ACCEPT'
 	option forward 'ACCEPT'
-	list network 'lan' # lan inteface
-	list network 'wwan' # wwan inteface
-	list network 'wwan6' # wwan6 inteface
-	list network 'relay_bridge' # relay bridge inteface
+	list network 'lan' # lan interface
+	list network 'wwan' # wwan interface
+	list network 'wwan6' # wwan6 interface
+	list network 'relay_bridge' # relay bridge interface
 ```
 
 /etc/config/dhcp
