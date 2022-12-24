@@ -6,8 +6,8 @@
 - [Get started](#get-started)
   - [Downloading Custom OpenWrt Images](P)
 - [Flashing OpenWrt](#flashing-openwrt)
-  - [Accessing D-Link recovery mode](#accessing-d-link-recovery-mode)
-  - [Upgrading OpenWrt firmware in LUCI](#upgrading-openwrt-firmware-in-luci)
+  - [Part Ⅰ : Accessing D-Link recovery mode](#part-ⅰ--accessing-d-link-recovery-mode)
+  - [Part Ⅱ : Upgrading OpenWrt firmware in LUCI](#part-ⅱ--upgrading-openwrt-firmware-in-luci)
 - [Maintaining Your OpenWrt Up to Date](#maintaining-your-openwrt-up-to-date)
 - [Research](#research)
 
@@ -24,7 +24,9 @@
 
 With OpenWrt Firmware Selector now we can customize which packages to be installed. In this guide I will be adding `luci-app-attendedsysupgrade`,  `luci-proto-relay` & `luci`.  
 
-![gif](./firmware-selector.gif)
+| ![gif](./firmware-selector3.gif) |  
+|:--:|  
+| *OpenWrt Firmware Selector* |
 
 1. Type the model name in accodingly:  
     Example: `DIR-842 C2`
@@ -44,57 +46,85 @@ With OpenWrt Firmware Selector now we can customize which packages to be install
 
 3. Wait until the process finished.  
 
-    ![img](./firmware-selector2.png)  
+    | ![img](./firmware-selector2.png)  |  
+    |:--:|  
+    | *OpenWrt Firmware Selector: Download button* |
 
 4. Click on `FACTORY` & `SYSUPGRADE` to download the firmware.  
 5. Rename them to `factory.bin` & `sysupgarde.bin` **Important!**  
 
 ## Flashing OpenWrt
 
-1. Connect your computer to the D-Link DIR-842 C2 router using an Ethernet cable.
+**Important:** We must to follow `Part Ⅰ` & `Part Ⅱ` of the process. **DO NOT** power-cycle the router.
 
-### Accessing D-Link recovery mode
+### Part Ⅰ : Accessing D-Link recovery mode
 
-1. Connect your computer to the D-Link DIR-842 C2 router using an Ethernet cable (use `LAN1` port).
+| ![dlink-recovery1](./DIR-842-yback.png) |  
+|:--:|  
+| *LAN port 1* |
+
+1. Connect your computer to the D-Link DIR-842 C2 router using an Ethernet cable (use `LAN` port `1`).
 2. Unplug power from the device
 3. Press and hold the reset button on the device and re-plug the power without releasing the reset button
 4. Continue to hold the reset button until the red/orange power light starts blinking
 5. On the computer, manually assign a static IP address on the 192.168.0.xxx subnet, other than 192.168.0.1 (e.g. 192.168.0.2)
 6. Open a web browser and navigate to <http://192.168.0.1>  
-7. Click `Browse..` and choose the `factory.bin` and click on `Upload`  
 
-   ![dlink-recovery1](./dlink-recovery1.jpg)  
+    | ![dlink-recovery1](./dlink-recovery1.jpg) |  
+    |:--:|  
+    | *D-Link recovery* |
+
+7. Click `Browse..` and choose the `factory.bin` and click on `Upload`  
 8. After the file has been uploaded, you should see a “Device is upgrading the firmware” message on the web browser  
 9. Wait while the device verify the uploaded file and flash the firmware  
 10. The device will reboot automatically after the flashing process finishes. DO NOT turn off the router  
 
-    ![static-ip](./set%20-static-ip.png)  
+    | ![static-ip](./set%20-static-ip.png) |  
+    |:--:|  
+    | *Set static IP* |  
 11. After a while set your PC to 192.168.1.2 with default gateway 192.168.1.1.  
 
-### Upgrading OpenWrt firmware in LUCI
+### Part Ⅱ : Upgrading OpenWrt firmware in LUCI
 
 1. Open a web browser and navigate to <http://192.168.1.1>  
 2. Log in to the OpenWrt web interface using the default username and password (usually "root" and a blank password, respectively).  
 
-   ![luci-flash1](./luci-flash1.png)  
+    | ![luci-flash1](./luci-flash1.png)  |  
+    |:--:|  
+    | *LuCI dropdown menu* |
 3. `System` > `Backup / Flash Firmware`  
 
-   ![luci-flash2](./luci-flash2.png)
+    | ![luci-flash2](./luci-flash2.png) |  
+    |:--:|  
+    | *LuCI flash operations* |
 4. Click on `Flash Image..`  
 5. Choose the `factory.bin` and click on “Upload”
 6. The system will reboot
+7. That's it! You should now be able to use OpenWrt on your D-Link DIR-842 C2 router.  
 
-That's it! You should now be able to use OpenWrt on your D-Link DIR-842 C2 router. Note that flashing a new firmware onto a router can be risky and may result in the loss of all data on the router if something goes wrong. Make sure to follow the instructions carefully and take all necessary precautions to avoid damaging your router.
+### Additional Notes
+
+> Note that flashing a new firmware onto a router can be risky and may result in the loss of all data on the router if something goes wrong. Make sure to follow the instructions carefully and take all necessary precautions to avoid damaging your router.
 
 ## Maintaining Your OpenWrt Up to Date
 
-1. Open a web browser and navigate to <http://192.168.1.1>
+| [![yt1](https://img.youtube.com/vi/FFTPA6GkJjg/0.jpg)](https://www.youtube.com/watch?v=FFTPA6GkJjg&t=1092s)  |  
+|:--:|  
+| *Youtube video* |
 
-    ![luci-attendedsysupgarde1](./luci-attendedsysupgrade1.png)
+🔼 How to upgrade OpenWrt? - Youtube video from [youtube.com/OneMarcFifty](https://www.youtube.com/@OneMarcFifty)
+
+1. Open a web browser and navigate to <http://192.168.1.1>  
+
+    | ![luci-attendedsysupgarde1](./luci-attendedsysupgrade1.png) |  
+    |:--:|  
+    | *LuCI dropdown menu* |
 
 2. `System` > `Attended Sysupgrade`  
 
-    ![luci-attendedsysupgrade2](./luci-attendedsysupgrade2.png)
+    | ![luci-attendedsysupgrade2](./luci-attendedsysupgrade2.png) |  
+    |:--:|  
+    | *LuCI Attended Sysupgrade* |
 3. Click on `Search for firmware upgrade`
 4. The system will reboot
 
