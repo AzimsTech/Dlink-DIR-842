@@ -10,7 +10,8 @@
 
 ## Configuration Files
 
-/etc/config/network
+<details open>
+  <summary>/etc/config/network</summary>  
 
 ```bash
 ...
@@ -44,7 +45,10 @@ config interface 'relay_bridge' # Assign any name
 
 ```
 
-/etc/config/wireless
+</details>
+
+<details>
+  <summary>/etc/config/wireless</summary>
 
 ```bash
 
@@ -76,7 +80,10 @@ config wifi-iface 'wifinet2'
 
 ```
 
-/etc/config/firewall
+</details>
+
+<details>
+  <summary>/etc/config/firewall</summary>
 
 ```bash
 ...
@@ -92,7 +99,10 @@ config zone
 	list network 'relay_bridge' # relay bridge interface
 ```
 
-/etc/config/dhcp
+</details>
+
+<details>
+  <summary>/etc/config/dhcp</summary>
 
 ```bash
 ...
@@ -114,6 +124,8 @@ config dhcp 'wwan6'
 	option ra 'relay' # For IPv6 relay
 	option ndp 'relay' # For IPv6 relay
 ```
+
+</details>
 
 ## Research
 
